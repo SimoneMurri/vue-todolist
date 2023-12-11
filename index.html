@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <div id="app">
+      <h1>Vue To-Do List</h1>
+      <div class="todo-app">
+          <div class="todo-input">
+              <input type="text" v-model="newTodo" placeholder="Aggiungi nuovo todo">
+              <button @click="addTodo">Aggiungi</button>
+          </div>
+          <ul class="todo-list">
+              <li v-for="(todo, index) in todos" :key="index">
+                  <span :class="{ 'done': todo.done }">{{ todo.text }}</span>
+                  <button @click="removeTodo(index)">X</button>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
